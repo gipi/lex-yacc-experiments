@@ -8,8 +8,8 @@ These are two fundamental tools for programming
 
 Exists a simple program that parse a path directive with environment variable inside
 
-    $ make env
-    $ echo 'path "${HOME}/bin"' | ./env
+    $ make conf/env
+    $ echo 'path "${HOME}/bin"' | ./conf/env
 
 ## Link
 
