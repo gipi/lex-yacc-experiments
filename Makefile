@@ -8,6 +8,8 @@ LEX=flex
 
 BIN=heater conf/env
 
+all:$(BIN)
+
 %: %.tab.c %.scan.c
 	$(CC) $(CPFLAGS) $^ -lfl -o $@
 
