@@ -6,7 +6,7 @@ YACC_OPTS=-t -d
 
 LEX=flex
 
-BIN=heater
+BIN=heater conf/env
 
 %: %.tab.c %.scan.c
 	$(CC) $(CPFLAGS) $^ -lfl -o $@
