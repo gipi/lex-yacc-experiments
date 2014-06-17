@@ -1,13 +1,18 @@
+CC=gcc
+CPFLAGS=-Wall -DYYDEBUG
+
 YACC=yacc
+YACC_OPTS=-t -d
+
 LEX=flex
 
 BIN=heater
 
 %: %.tab.c %.scan.c
-	gcc -Wall $^ -lfl -o $@
+	$(CC) $(CPFLAGS) $^ -lfl -o $@
 
 %.tab.c %.tab.h: %.y
-	$(YACC) -d $^ -o $@
+	$(YACC) $(YACC_OPTS) $^ -o $@
 
 %.scan.c:%.l
 	$(LEX) --outfile=$@ $^
