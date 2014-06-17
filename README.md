@@ -16,3 +16,4 @@ Exists a simple program that parse a path directive with environment variable in
  - http://ds9a.nl/lex-yacc/cvs/lex-yacc-howto.html
  - http://moss.csc.ncsu.edu/~mueller/codeopt/codeopt00/y_man.pdf
  - http://luv.asn.au/overheads/lex_yacc/yacc.html
+ - http://epaperpress.com/lexandyacc/download/LexAndYaccTutorial.pdf
