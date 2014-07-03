@@ -14,7 +14,9 @@ int yywrap()
 } 
   
 main() {
+#ifdef YYDEBUG
         yydebug = 1;
+#endif
         yyparse();
 } 
 

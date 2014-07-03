@@ -1,5 +1,9 @@
 CC=gcc
-CPFLAGS=-Wall -DYYDEBUG
+CPFLAGS=-Wall
+
+ifneq ($(DEBUG),)
+    CPFLAGS+=-DYYDEBUG
+endif
 
 YACC=yacc
 YACC_OPTS=-t -d
