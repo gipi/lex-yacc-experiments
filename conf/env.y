@@ -39,16 +39,13 @@ blocks: /* empty */
         | blocks block
         | blocks variable_declaration
         ;
-variable_declaration:   /* empty */
-        | VAR_TOK ALPHA EQUAL_TOK QUOTE ALPHA QUOTE {
+variable_declaration:
+        VAR_TOK ALPHA EQUAL_TOK QUOTE ALPHA QUOTE {
             printf("find out variable '%s' with value '%s'\n", $2, $5);
         }
         ;
-block: /* empty */
-        | BLOCK_NAME BRACE_START path BRACE_END
-        ;
-paths: /* empty */
-        | paths path
+block:
+        BLOCK_NAME BRACE_START path BRACE_END
         ;
 path:
         PATH_TOK filename {
