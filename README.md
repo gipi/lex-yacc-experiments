@@ -26,8 +26,9 @@ of lexer as an extern vaariable. You will find this extern declaration in the ``
 Exists a simple program that parse a path directive with environment variable inside
 
     $ make conf/env
-    $ echo 'path "${HOME}/bin"' | ./conf/env
-    PATH /home/gipi/bin
+    $ echo conf/example.conf | ./conf/env
+    find out variable 'root' with value '/srv/'
+    find out path with value '/home/gipi/bin/'
 
 If you want to have debugging activated pass ``DEBUG=1`` to the ``make`` command.
 
