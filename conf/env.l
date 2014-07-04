@@ -9,8 +9,8 @@ extern int variable;
 %}
 %x VARIABLE
 %%
-\{                      return BLOCK_START;
-\}                      return BLOCK_END;
+\{                      return BRACE_START;
+\}                      return BRACE_END;
 path                    return PATH_TOK;
 var                     return VAR_TOK;
 smtp                    return BLOCK_NAME;

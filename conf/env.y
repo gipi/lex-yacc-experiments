@@ -21,14 +21,26 @@ main() {
 } 
 
 %}
-%token PATH_TOK QUOTE ALPHA START_VARIABLE END_VARIABLE
+%token BRACE_START BRACE_END PATH_TOK QUOTE ALPHA START_VARIABLE END_VARIABLE BLOCK_NAME VAR_TOK EQUAL_TOK
 %%
+blocks: /* empty */
+        | blocks block
+        | blocks variable_declaration
+        ;
+variable_declaration:   /* empty */
+        | VAR_TOK ALPHA EQUAL_TOK QUOTE ALPHA QUOTE {
+            printf("find out variable '%s' with value '%s'\n", $2, $5);
+        }
+        ;
+block: /* empty */
+        | BLOCK_NAME BRACE_START path BRACE_END
+        ;
 paths: /* empty */
         | paths path
         ;
 path:
         PATH_TOK filename {
-            printf("PATH %s", $2);
+            printf("find out path with value '%s'\n", $2);
         }
         ;
 
@@ -38,7 +50,7 @@ filename: /* empty */
         }
         ;
 variable:
-        START_VARIABLE {variable = 1;} ALPHA END_VARIABLE {variable = 0; $$ = $3; }
+        START_VARIABLE {variable = 1;} ALPHA BRACE_END {variable = 0; $$ = $3; }
         ;
 character: /* empty */
         | ALPHA
