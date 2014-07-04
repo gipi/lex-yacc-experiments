@@ -57,8 +57,9 @@ character: /* empty */
         | ALPHA variable
         | variable
         | variable ALPHA {
-            char* s=malloc(sizeof(char)*(strlen($1)+strlen($2)+1));
-                                strcpy(s,$1); strcat(s,$2);
-                                $$=s;
+            char* s = malloc(sizeof(char) * (strlen($1) + strlen($2) + 1));
+                                strcpy(s,$1);
+                                strcat(s,$2);
+                                $$ = s;
         }
         ;
