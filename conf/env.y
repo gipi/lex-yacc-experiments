@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 extern int yydebug;
+extern FILE* yyin;
 int variable;
 void yyerror(const char *str)
 {
@@ -13,13 +14,24 @@ int yywrap()
         return 1;
 } 
   
-main() {
+void parse_configuration_file(char* configuration_file_path) {
+    // open a file handle to a particular file:
+    FILE* configuration_file = fopen(configuration_file_path, "r");
+    // make sure it's valid:
+    if (!configuration_file) {
+        char message[256];
+        snprintf(message, 256, "error opening '%s'", configuration_file_path);
+        perror(message);
+        return;
+    }
+
+    // set lex to read from it instead of defaulting to STDIN:
+    yyin = configuration_file;
 #ifdef YYDEBUG
         yydebug = 1;
 #endif
         yyparse();
-} 
-
+}
 %}
 %token BRACE_START BRACE_END PATH_TOK QUOTE ALPHA START_VARIABLE END_VARIABLE BLOCK_NAME VAR_TOK EQUAL_TOK
 %%
