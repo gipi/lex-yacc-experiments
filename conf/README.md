@@ -1,5 +1,6 @@
 We want to parse a file like the following
 
+    include "main.conf";
     variable1 = "whatever";
     smtp {
         port 25;
