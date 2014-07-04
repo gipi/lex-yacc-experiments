@@ -26,7 +26,7 @@ of lexer as an extern vaariable. You will find this extern declaration in the ``
 Exists a simple program that parse a path directive with environment variable inside
 
     $ make conf/env
-    $ echo conf/example.conf | ./conf/env
+    $ ./conf/env
     find out variable 'root' with value '/srv/'
     find out path with value '/home/gipi/bin/'
 
