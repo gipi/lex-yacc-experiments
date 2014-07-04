@@ -27,4 +27,4 @@ conf/env: conf/env.tab.c conf/env.scan.c conf/main.c
 	$(CC) $(CPFLAGS) $^ -lfl -o $@
 
 clean:
-	rm -f *.o *.tab.c *.tab.h $(BIN)
+	rm -f *.o */*.tab.c */*.tab.h */*.scan.c $(BIN)
